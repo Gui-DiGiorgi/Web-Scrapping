@@ -50,6 +50,8 @@ info = trade_soup.find('div', {'class' :current_class}).get_text()
 
 old_og_price = float(info.strip()[1:])
 
+start_time = time.time()
+
 
 print("{0}\t{1}".format("Time","Price"))
 
@@ -74,16 +76,11 @@ while run:
     
     if og_price != old_og_price:
         
-        now = round(time.time())
+        now = round(time.time()-start_time)
         
         old_og_price = og_price
 
         price = int(round(og_price))
         
         print("{0}\t{1}".format(now,price))
-        
-    else:
-        
-        pass
-        
 
